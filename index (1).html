@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwahiliTalkLab — Free A1 Swahili Story Starter Pack</title>
+<meta name="description" content="Learn Swahili for beginners through real stories. Get the free A1 Swahili Story Starter Pack: 5 stories, audio links, transcripts and vocabulary support.">
+
+<!-- ============================================= -->
+<!-- GOOGLE ANALYTICS PLACEHOLDER                    -->
+<!-- Paste your Google Analytics / GA4 tracking code -->
+<!-- between these markers. Do not remove this block. -->
+<!-- ============================================= -->
+<!-- BEGIN GOOGLE ANALYTICS -->
+
+<!-- END GOOGLE ANALYTICS -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:        #FAF6EF;
+    --cream-alt:     #F1EADA;
+    --charcoal:      #2B2622;
+    --charcoal-soft: #55504A;
+    --brown:         #8C5A34;
+    --brown-deep:    #6E4526;
+    --green:         #6B7A5E;
+    --gold:          #C39A45;
+    --line:          rgba(43,38,34,0.12);
+    --max: 1080px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Karla', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--charcoal);
+    margin: 0 0 0.5em 0;
+  }
+
+  em{ font-style: italic; color: var(--brown-deep); }
+
+  a{ color: var(--brown-deep); }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section{ padding: 88px 0; }
+  @media (max-width: 640px){ section{ padding: 56px 0; } }
+
+  .eyebrow{
+    display:inline-block;
+    font-family:'Karla', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 18px;
+  }
+
+  /* ---------- signature motif: woven divider ---------- */
+  .weave{
+    width: 100%;
+    height: 14px;
+    display:block;
+  }
+  .weave svg{ width:100%; height:100%; display:block; }
+
+  /* ---------- header / hero ---------- */
+  header.hero{
+    padding: 64px 0 96px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom: 72px;
+  }
+  .hero-brand .mark{
+    width: 34px; height: 34px;
+    flex-shrink:0;
+  }
+  .hero-brand .name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size: 19px;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items:center;
+  }
+  @media (max-width: 860px){
+    .hero-grid{ grid-template-columns: 1fr; }
+  }
+
+  h1.headline{
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+    line-height: 1.12;
+    max-width: 15ch;
+  }
+  .sub{
+    font-size: 19px;
+    color: var(--charcoal-soft);
+    max-width: 46ch;
+    margin: 20px 0 34px;
+  }
+
+  .btn-primary{
+    display:inline-block;
+    background: var(--brown);
+    color: var(--cream);
+    font-family:'Karla', sans-serif;
+    font-weight:700;
+    font-size: 15.5px;
+    letter-spacing: 0.01em;
+    text-decoration:none;
+    padding: 16px 30px;
+    border-radius: 3px;
+    border: 1px solid var(--brown);
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .btn-primary:hover{ background: var(--brown-deep); transform: translateY(-1px); }
+  .btn-primary:focus-visible{ outline: 3px solid var(--gold); outline-offset: 2px; }
+
+  /* hero side panel: a stack of five story "cards" fanned like a hand of index cards */
+  .story-fan{
+    position:relative;
+    height: 300px;
+  }
+  .story-card{
+    position:absolute;
+    width: 210px;
+    height: 140px;
+    top: 60px;
+    left: 50%;
+    background: var(--cream-alt);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 18px 20px;
+    box-shadow: 0 10px 24px rgba(43,38,34,0.06);
+  }
+  .story-card .tag{
+    font-size: 11px;
+    font-weight:700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+    display:block;
+    margin-bottom: 8px;
+  }
+  .story-card .title{
+    font-family:'Fraunces', serif;
+    font-size: 16px;
+    font-weight:500;
+  }
+  .story-card.c1{ transform: translateX(-50%) rotate(-9deg); z-index:1; }
+  .story-card.c2{ transform: translateX(-64%) rotate(-3deg); top:36px; z-index:2; }
+  .story-card.c3{ transform: translateX(-38%) rotate(6deg); top:44px; z-index:2; }
+  .story-card.c4{ transform: translateX(-50%) rotate(0deg); top:12px; z-index:3; background: var(--cream); }
+  @media (max-width: 860px){
+    .story-fan{ height: 220px; margin-top: 12px;}
+    .story-card{ width: 170px; height: 120px; }
+  }
+
+  /* ---------- what's included ---------- */
+  .included{
+    background: var(--cream-alt);
+  }
+  .included-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px 40px;
+    margin-top: 44px;
+  }
+  @media (max-width: 760px){ .included-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px){ .included-grid{ grid-template-columns: 1fr; } }
+
+  .item{ border-left: 2px solid var(--brown); padding-left: 18px; }
+  .item h3{ font-size: 18px; margin-bottom: 6px; }
+  .item p{ color: var(--charcoal-soft); font-size: 15.5px; margin:0; }
+
+  .lede{
+    font-size: 21px;
+    font-family:'Fraunces', serif;
+    font-weight: 400;
+    max-width: 62ch;
+    color: var(--charcoal);
+  }
+
+  /* ---------- who it's for ---------- */
+  .audience-list{
+    list-style:none;
+    margin: 40px 0 0;
+    padding:0;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 40px;
+  }
+  @media (max-width: 640px){ .audience-list{ grid-template-columns: 1fr; } }
+  .audience-list li{
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    font-size: 17px;
+  }
+  .audience-list li strong{ display:block; font-family:'Fraunces', serif; font-weight:500; font-size:18px; margin-bottom:4px; }
+
+  /* ---------- how it works ---------- */
+  .steps{
+    background: var(--cream-alt);
+  }
+  .step-row{
+    display:grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+    align-items: start;
+  }
+  .step-row:last-child{ border-bottom: 1px solid var(--line); }
+  .step-num{
+    font-family:'Fraunces', serif;
+    font-size: 38px;
+    color: var(--brown);
+    line-height:1;
+  }
+  .step-row h3{ font-size: 19px; margin-bottom: 4px; }
+  .step-row p{ margin:0; color: var(--charcoal-soft); }
+
+  /* ---------- results tips ---------- */
+  .tips{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+  }
+  @media (max-width: 860px){ .tips{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px){ .tips{ grid-template-columns: 1fr; } }
+  .tip{
+    padding: 24px 20px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+  .tip .dot{
+    width: 8px; height:8px; border-radius: 50%;
+    background: var(--gold);
+    display:block;
+    margin-bottom: 14px;
+  }
+  .tip p{ margin:0; font-size:15px; color: var(--charcoal-soft); }
+
+  /* ---------- lead capture ---------- */
+  .capture{
+    background: var(--charcoal);
+    color: var(--cream);
+    border-radius: 6px;
+    margin: 0 auto;
+    max-width: var(--max);
+    padding: 64px 48px;
+    position: relative;
+    overflow:hidden;
+  }
+  @media (max-width: 640px){ .capture{ padding: 44px 24px; } }
+  .capture h2{ color: var(--cream); max-width: 20ch; }
+  .capture .sub{ color: rgba(250,246,239,0.75); }
+  .capture-inner{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  @media (max-width: 780px){ .capture-inner{ grid-template-columns: 1fr; } }
+
+  .form-panel{
+    background: var(--cream);
+    border-radius: 5px;
+    padding: 32px;
+    color: var(--charcoal);
+  }
+  .form-panel .note{
+    margin-top: 16px;
+    font-size: 13.5px;
+    color: var(--charcoal-soft);
+  }
+
+  /* MailerLite embed sizing safety net */
+  .ml-embedded{ width: 100%; }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding: 56px 0 40px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-grid{
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  footer .name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size: 18px;
+  }
+  footer .tag{
+    color: var(--charcoal-soft);
+    font-size: 14.5px;
+    margin-top: 4px;
+  }
+  footer .fine{
+    color: var(--charcoal-soft);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-brand">
+      <svg class="mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="17" cy="17" r="16" stroke="#8C5A34" stroke-width="1.4"/>
+        <path d="M9 21 Q17 9 25 21" stroke="#6B7A5E" stroke-width="1.4" fill="none"/>
+        <circle cx="17" cy="17" r="2.4" fill="#C39A45"/>
+      </svg>
+      <span class="name">SwahiliTalkLab</span>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Free Story Starter Pack</span>
+        <h1 class="headline">Learn Swahili for beginners through real stories</h1>
+        <p class="sub">Build your beginner Swahili listening confidence with simple stories, audio practice, transcripts, and vocabulary support &mdash; no isolated word lists, no memorising in a vacuum.</p>
+        <a href="#signup" class="btn-primary">Get Your Free A1 Swahili Story Starter Pack</a>
+      </div>
+
+      <div class="story-fan" aria-hidden="true">
+        <div class="story-card c1"><span class="tag">Story 02</span><span class="title">Sokoni</span></div>
+        <div class="story-card c2"><span class="tag">Story 04</span><span class="title">Safari Njema</span></div>
+        <div class="story-card c3"><span class="tag">Story 03</span><span class="title">Nyumbani</span></div>
+        <div class="story-card c4"><span class="tag">Story 01</span><span class="title">Habari za Asubuhi</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="included">
+  <div class="wrap">
+    <span class="eyebrow">What's inside</span>
+    <h2 class="lede">The A1 Swahili Story Starter Pack helps beginners learn Swahili through meaningful stories, not isolated vocabulary lists.</h2>
+
+    <div class="included-grid">
+      <div class="item">
+        <h3>5 beginner-level stories</h3>
+        <p>Short, everyday scenes written for true A1 learners &mdash; simple grammar, real context.</p>
+      </div>
+      <div class="item">
+        <h3>Audio access</h3>
+        <p>Links inside the PDF let you hear each story read aloud, at a pace beginners can follow.</p>
+      </div>
+      <div class="item">
+        <h3>Full transcripts</h3>
+        <p>Read along as you listen, so your ear and your eye learn the language together.</p>
+      </div>
+      <div class="item">
+        <h3>Vocabulary support</h3>
+        <p>Key words and phrases from each story, explained in plain, practical terms.</p>
+      </div>
+      <div class="item">
+        <h3>Listening practice</h3>
+        <p>Built to train comprehension first &mdash; the skill most beginner courses skip.</p>
+      </div>
+      <div class="item">
+        <h3>Delivered by email</h3>
+        <p>Sent straight to your inbox the moment you sign up below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="audience">
+  <div class="wrap">
+    <span class="eyebrow">Who it's for</span>
+    <h2>Built for people learning Swahili on purpose</h2>
+    <ul class="audience-list">
+      <li><strong>Complete beginners</strong>Starting from zero and want a way in that isn't a grammar textbook.</li>
+      <li><strong>Travellers preparing for East Africa</strong>Getting ready for a trip and want to arrive able to actually converse.</li>
+      <li><strong>Expatriates and international professionals</strong>Living or working alongside Swahili speakers and ready to engage properly.</li>
+      <li><strong>Listening-focused learners</strong>Comfortable with some vocabulary but wanting real listening confidence.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <span class="eyebrow">How it works</span>
+    <h2>Three steps to your first story</h2>
+
+    <div class="step-row">
+      <div class="step-num">01</div>
+      <div>
+        <h3>Enter your name and email</h3>
+        <p>Use the form below &mdash; it takes about ten seconds.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">02</div>
+      <div>
+        <h3>Receive your Story Starter Pack by email</h3>
+        <p>Your free resource arrives directly in your inbox.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">03</div>
+      <div>
+        <h3>Listen, read, repeat, build confidence</h3>
+        <p>Work through the five stories at your own pace, using the audio and transcripts together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="results">
+  <div class="wrap">
+    <span class="eyebrow">Getting the best results</span>
+    <h2 style="max-width: 26ch;">Language improves through repeated exposure</h2>
+    <div class="tips">
+      <div class="tip"><span class="dot"></span><p>Listen to each story more than once &mdash; the second and third pass is where it clicks.</p></div>
+      <div class="tip"><span class="dot"></span><p>Follow along with the transcript so your ear and eye reinforce each other.</p></div>
+      <div class="tip"><span class="dot"></span><p>Repeat phrases aloud, even quietly &mdash; speaking builds recall that reading alone doesn't.</p></div>
+      <div class="tip"><span class="dot"></span><p>Practise consistently in short sessions rather than occasional long ones.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="signup">
+  <div class="wrap">
+    <div class="capture">
+      <div class="capture-inner">
+        <div>
+          <span class="eyebrow" style="color:#C39A45;">Free resource</span>
+          <h2>Get Your Free A1 Swahili Story Starter Pack</h2>
+          <p class="sub">Enter your first name and email address. Your free resource will be delivered directly to your inbox.</p>
+        </div>
+
+        <div class="form-panel">
+          <!-- MailerLite Universal -->
+          <script>
+          (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+          .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+          n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+          (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+          ml('account', '2319073');
+          </script>
+          <!-- End MailerLite Universal --> <div class="ml-embedded" data-form="95BkD4"></div>
+
+          <p class="note">After you submit, you'll see a confirmation on screen: "Thank you! Your free A1 Swahili Story Starter Pack has been sent to your email."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="name">SwahiliTalkLab</div>
+        <div class="tag">Practical Swahili learning through stories and communication.</div>
+      </div>
+      <div class="fine">&copy; <span id="year"></span> SwahiliTalkLab. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
